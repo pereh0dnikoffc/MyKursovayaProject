@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Отделы{% endblock %}
+{% block content %}
+<h2>Список отделов</h2>
+<div class="card shadow-sm mt-4">
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Название</th>
+                    <th>Руководитель</th>
+                    <th>Описание</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dept in departments %}
+                <tr>
+                    <td>{{ dept.name }}</td>
+                    <td>{{ dept.head.full_name|default:"Не назначен" }}</td>
+                    <td>{{ dept.description|default:"-"|truncatechars:50 }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="3" class="text-center">Отделов пока нет</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -27,9 +27,9 @@
             <ul class="nav flex-column">
                 <li class="nav-item"><a href="{% url 'dashboard' %}" class="nav-link"><i class="bi bi-speedometer2"></i> Дашборд</a></li>
                 <li class="nav-item"><a href="{% url 'employee_list' %}" class="nav-link"><i class="bi bi-people"></i> Сотрудники</a></li>
-                <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-building"></i> Отделы</a></li>
-                <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-calendar-check"></i> Отпуска</a></li>
-                <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-clock-history"></i> Табель</a></li>
+               <li class="nav-item"><a href="{% url 'department_list' %}" class="nav-link"><i class="bi bi-building"></i> Отделы</a></li>
+                <li class="nav-item"><a href="{% url 'vacation_list' %}" class="nav-link"><i class="bi bi-calendar-check"></i> Отпуска</a></li>
+                <li class="nav-item"><a href="{% url 'attendance_list' %}" class="nav-link"><i class="bi bi-clock-history"></i> Табель</a></li>
                 <li class="nav-item mt-4"><a href="{% url 'admin:index' %}" class="nav-link text-warning"><i class="bi bi-gear"></i> Админка</a></li>
             </ul>
         </nav>
