@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Дашборд{% endblock %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3 shadow-sm">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Добро пожаловать в HR Систему!</h1>
+        <p class="col-md-8 fs-4">Используйте меню слева, чтобы управлять сотрудниками, отслеживать отпуска и смотреть табель.</p>
+        <a href="{% url 'employee_list' %}" class="btn btn-primary btn-lg">Перейти к сотрудникам</a>
+    </div>
+</div>
+{% endblock %}
