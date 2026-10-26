@@ -15,6 +15,7 @@
                 <tr>
                     <th>ФИО</th>
                     <th>Отдел</th>
+                    <th>Должность</th>
                     <th>Дата приема</th>
                     <th>Статус</th>
                     <th>Действия</th>
@@ -25,6 +26,13 @@
                 <tr>
                     <td>{{ employee.full_name }}</td>
                     <td>{{ employee.department.name }}</td>
+                    <td>
+                        {% for ep in employee.current_positions %}
+                            {{ ep.position.title }}{% if not forloop.last %}, {% endif %}
+                        {% empty %}
+                            <span class="text-muted">Не назначена</span>
+                        {% endfor %}
+                    </td>
                     <td>{{ employee.hire_date|date:"d.m.Y" }}</td>
                     <td>
                         {% if employee.status == 'active' %}
