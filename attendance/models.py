@@ -12,6 +12,8 @@ class VacationBalance(models.Model):
     remaining_days = models.IntegerField(default=0)
 
     class Meta:
+        verbose_name = "Отпускные"
+        verbose_name_plural = "Отпускные"
         unique_together = ('employee', 'year')  # У сотрудника один баланс на год
 
     def save(self, *args, **kwargs):
@@ -47,6 +49,10 @@ class Vacation(models.Model):
                                     related_name='approved_vacations')
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name = "Отпуск"
+        verbose_name_plural = "Отпуска"
+
 
 class SickLeave(models.Model):
     class Status(models.TextChoices):
@@ -59,6 +65,10 @@ class SickLeave(models.Model):
     document_no = models.CharField(max_length=50, blank=True, null=True)
     status = models.CharField(max_length=10, choices=Status.choices, default=Status.OPEN)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Больничный"
+        verbose_name_plural = "Больничные"
 
 
 class Attendance(models.Model):
@@ -78,5 +88,7 @@ class Attendance(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+        verbose_name = "Посещаемость"
+        verbose_name_plural = "Посещаемость"
         # Один сотрудник - одна запись в день
         unique_together = ('employee', 'work_date') 

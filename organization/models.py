@@ -8,6 +8,10 @@ class Grade(models.Model):
     salary_min = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     salary_max = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
 
+    class Meta:
+        verbose_name = "Грейд"
+        verbose_name_plural = "Грейды"
+
     def __str__(self):
         return f"{self.level}. {self.name}"
 
@@ -26,6 +30,10 @@ class Department(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name = "Отдел"
+        verbose_name_plural = "Отделы"
+
     def __str__(self):
         return self.name
 
@@ -35,6 +43,10 @@ class Position(models.Model):
     department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='positions')
     grade = models.ForeignKey(Grade, on_delete=models.SET_NULL, null=True, related_name='positions')
     is_manager = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name = "Должность"
+        verbose_name_plural = "Должности"
 
     def __str__(self):
         return f"{self.title} ({self.department.name})"

@@ -17,6 +17,10 @@ class Employee(models.Model):
     fire_date = models.DateField(null=True, blank=True)
     status = models.CharField(max_length=10, choices=Status.choices, default=Status.ACTIVE)
 
+    class Meta:
+        verbose_name = "Сотрудник"
+        verbose_name_plural = "Сотрудники"
+
     def __str__(self):
         return self.full_name
 
@@ -28,6 +32,10 @@ class EmployeePosition(models.Model):
     start_date = models.DateField()
     end_date = models.DateField(null=True, blank=True)
     is_primary = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name = "Назначение на должность"
+        verbose_name_plural = "История назначений"
 
     def __str__(self):
         return f"{self.employee.full_name} - {self.position.title}"

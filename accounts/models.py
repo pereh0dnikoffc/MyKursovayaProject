@@ -6,6 +6,10 @@ class Role(models.Model):
     name = models.CharField(max_length=50, unique=True)
     description = models.CharField(max_length=255, blank=True, null=True)
 
+    class Meta:
+        verbose_name = "Роль"
+        verbose_name_plural = "Роли"
+
     def __str__(self):
         return self.name
 
@@ -20,6 +24,10 @@ class User(models.Model):
 
     # Связь M:N. Django автоматически создаст таблицу связей (roles_users)
     roles = models.ManyToManyField(Role, related_name='users')
+
+    class Meta:
+        verbose_name = "Пользователь"
+        verbose_name_plural = "Пользователи"
 
     def __str__(self):
         return self.login
